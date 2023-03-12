@@ -1,0 +1,77 @@
+\ProvidesPackage{course}
+
+\RequirePackage{graphicx}
+
+\def\course@title{???}
+\def\course@author{???}
+\def\course@supervisor@title{???}
+\def\course@supervisor@name{???}
+\edef\course@year{\the\year}
+\def\course@boss@title{???}
+\def\course@boss@name{???}
+
+\def\courseTitle#1{\def\course@title{#1}}
+\def\courseAuthor#1{\def\course@author{#1}}
+\def\courseSupervisorTitle#1{\def\course@supervisor@title{#1}}
+\def\courseSupervisorName#1{\def\course@supervisor@name{#1}}
+\def\courseYear#1{\def\course@year{#1}}
+
+\graphicspath{ {./} }
+
+\newcommand\coursePutTitleContents{%
+  \pagestyle{empty}%
+  \begin{center} \linespread{1}%
+    \LARGE
+    Московский государственный университет \\
+    имени М.\,В.~Ломоносова
+    
+    \includegraphics[scale=0.5]{msu}
+    
+    \vspace*{1cm}
+    
+    \Large
+    Факультет вычислительной математики и кибернетики
+    
+    Кафедра математической кибернетики
+  \end{center}%
+  \vfill%
+  \begin{center} \linespread{1}%
+    \Large%
+    Курсовая работа студента 318 группы
+    
+    \course@author
+    
+    \vspace{.5cm}
+  \end{center}%
+  \vfill
+  \begin{center} \linespread{1}%
+    \Large
+    Тема курсовой работы:
+    
+    <<\course@title>>
+  \end{center}
+  \vfill%
+  \vfill%
+  \begin{flushright} \linespread{1}%
+    \begin{tabular}{@{}l@{}}
+      \textbf{Научный руководитель:} \\
+      \qquad
+      \begin{tabular}{@{}l@{}}
+        \course@supervisor@title \\
+        \course@supervisor@name
+      \end{tabular} \\
+    \end{tabular}
+  \end{flushright}%
+  \vfill%
+  \vfill%
+  \begin{center}%
+    Москва, \course@year%
+  \end{center}%
+  \pagebreak
+  
+  \pagestyle{plain}
+  
+  \tableofcontents
+  
+  \pagebreak%
+}
